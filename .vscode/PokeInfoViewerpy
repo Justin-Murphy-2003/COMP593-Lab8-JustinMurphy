@@ -2,22 +2,40 @@ from tkinter import *
 from tkinter import ttk
 
 def main():
+    #create window
     root = Tk()
-    root.title('GUI')
+    root.title('Pokedex GUI')
 
-    frm_top = ttk.Frame(root)
-    frm_top.grid(row=0, column=0, columnspan=2)
+    #create frames
+    frm_input = ttk.Frame(root)
+    frm_input.grid(row=0, column=0, columnspan=2)
 
-    frm_btm_left = ttk.Frame(root)
-    frm_btm_left.grid(row=1, column=0)
+    frm_info = ttk.LabelFrame(root, text="Info")
+    frm_info.grid(row=1, column=0)
 
-    frm_btm_right = ttk.Frame(root)
-    frm_btm_right.grid(row=1, column=1)
+    frm_stats = ttk.LabelFrame(root, text="Stats")
+    frm_stats.grid(row=1, column=1)
 
-    lbl_name = ttk.Label(frm_top, text="Pokemon name: ")
-    lbl_name.grid(row=0, column=0, padx=(0,10), pady=10)
+    #user input frame
+    lbl_name = ttk.Label(frm_input, text="Pokemon name: ")
+    lbl_name.grid(row=0, column=0, padx=10, pady=10)
 
-    btn_getinfo = ttk.Button()
-    btn_getinfo.grid(padx=10, pady=10)
+    entry_name = ttk.Entry(frm_input)
+    entry_name.grid(row=0, column=1, padx=10, pady=10)
+
+    btn_getinfo = ttk.Button(frm_input, text="Get info")
+    btn_getinfo.grid(row=0, column=2, padx=10, pady=10)
+
+    #stats frame
+    lbl_height = ttk.Label(frm_info, text='Height: ')
+    lbl_height.grid(row=0, column=1, padx=10, pady=10)
+
+    lbl_weight = ttk.Label(frm_info, text='Weight: ')
+    lbl_weight.grid(row=1, column=1, padx=10, pady=10)
+
+    lbl_type = ttk.Label(frm_info, text='Type: ')
+    lbl_type.grid(row=2, column=1, padx=10, pady=10)
+
+    root.mainloop()
 
 main()
