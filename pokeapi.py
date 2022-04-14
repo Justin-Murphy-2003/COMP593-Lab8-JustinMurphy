@@ -3,9 +3,15 @@ import requests
 def get_pokemon_info(name):
 
     print("Getting Pokemon information...", end="")+str(name)
-    if name == (None, ''):
+
+    if name is None:
         return
+
     name = name.lower().strip()
+
+    if name == '':
+        return
+
     URL = 'https://pokeapi.co/api/v2/pokemon/'
     response = requests.get(URL)
 
