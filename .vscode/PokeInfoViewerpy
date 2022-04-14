@@ -17,7 +17,7 @@ def main():
     frm_stats = ttk.LabelFrame(root, text="Stats")
     frm_stats.grid(row=1, column=1)
 
-    #user input frame
+    #populate user input frame
     lbl_name = ttk.Label(frm_input, text="Pokemon name: ")
     lbl_name.grid(row=0, column=0, padx=10, pady=10)
 
@@ -28,20 +28,33 @@ def main():
         name = entry_name.get()
         poke_dict = get_pokemon_info(name)
         if poke_dict:
-            lbl_height_val = 
+            lbl_height_val['text'] = str(poke_dict['height']) + 'dm'
+            lbl_weight_val['text'] = str(poke_dict['weight']) + 'hg'
 
     btn_getinfo = ttk.Button(frm_input, text="Get info")
     btn_getinfo.grid(row=0, column=2, padx=10, pady=10)
 
-    #stats frame
+    #populate stats frame
+    lbl_hp = ttk.Label(frm_stats, text="HP: ")
+    lbl_hp.grid(row=0, column=0, padx=10, pady=10)
+    prg_hp = ttk.Progressbar()
+    prg_hp.grid(row=0, column=1, padx=10, pady=10)
+
+    #populate info frame
     lbl_height = ttk.Label(frm_info, text='Height: ')
     lbl_height.grid(row=0, column=1, padx=10, pady=10)
+    lbl_height_val = ttk.Label(frm_info, text="TBD")
+    lbl_height_val.grid(row=0, column=2, padx=10, pady=10)
 
     lbl_weight = ttk.Label(frm_info, text='Weight: ')
     lbl_weight.grid(row=1, column=1, padx=10, pady=10)
+    lbl_weight_val = ttk.Label(frm_info, text="TBD")
+    lbl_height_val.grid(row=1, column=2, padx=10, pady=10)
 
     lbl_type = ttk.Label(frm_info, text='Type: ')
     lbl_type.grid(row=2, column=1, padx=10, pady=10)
+    lbl_type_val = ttk.Label(frm_info, text='TBD')
+    lbl_type_val.grid(row=2, column=2, padx=10, pady=10)
 
     root.mainloop()
 
