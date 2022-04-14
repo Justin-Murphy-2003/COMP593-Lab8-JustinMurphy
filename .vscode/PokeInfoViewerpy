@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from pokeapi import get_pokemon_info
 
 def main():
     #create window
@@ -22,6 +23,12 @@ def main():
 
     entry_name = ttk.Entry(frm_input)
     entry_name.grid(row=0, column=1, padx=10, pady=10)
+
+    def btn_get_info_click():
+        name = entry_name.get()
+        poke_dict = get_pokemon_info(name)
+        if poke_dict:
+            lbl_height_val = 
 
     btn_getinfo = ttk.Button(frm_input, text="Get info")
     btn_getinfo.grid(row=0, column=2, padx=10, pady=10)
