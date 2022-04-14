@@ -1,6 +1,6 @@
 import requests
 
-def get_pokemon_info(poke_name):
+def get_pokemon_info(name):
     #print("Getting Pokemon information...", end="")+str(poke_name)
     URL = 'https://pokeapi.co/api/v2/pokemon/'
     response = requests.get(URL)
