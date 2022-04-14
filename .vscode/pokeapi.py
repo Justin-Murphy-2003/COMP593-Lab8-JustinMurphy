@@ -1,9 +1,14 @@
 import requests
 
 def get_pokemon_info(name):
-    #print("Getting Pokemon information...", end="")+str(poke_name)
+
+    print("Getting Pokemon information...", end="")+str(name)
+    if name == (None, ''):
+        return
+    name = name.lower().strip()
     URL = 'https://pokeapi.co/api/v2/pokemon/'
     response = requests.get(URL)
+
     if response.status_code == 200:
         print("success!")
         return response.json()
