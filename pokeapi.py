@@ -1,8 +1,13 @@
 import requests
 
 def get_pokemon_info(name):
+    """
+    Gets dictionary of info from PokeAPI for specified pokemon.
 
-    print("Getting Pokemon information...", end="")+str(name)
+    :param name: Specified Pokemon's Name or index number
+    """
+
+    print("Getting Pokemon information...", end="")
 
     if name is None:
         return
@@ -12,7 +17,7 @@ def get_pokemon_info(name):
     if name == '':
         return
 
-    URL = 'https://pokeapi.co/api/v2/pokemon/'
+    URL = 'https://pokeapi.co/api/v2/pokemon/'+str(name)
     response = requests.get(URL)
 
     if response.status_code == 200:
